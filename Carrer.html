@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Career Registration - Shrote Technology</title>
+    <style>
+        :root {
+            --main-color: #3c40c6;
+            --secondary-color: #009432;
+            --white: #fff;
+            --black: black;
+            --light-color: #666;
+            --bg-color: #fafaff;
+            --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            transition: all 0.2s linear;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 7.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 1rem;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+        }
+
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 5rem;
+            font-size: 1.8rem;
+            background-color: var(--main-color);
+            color: var(--white);
+            padding: 1.2rem 2.5rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn:hover {
+            background-color: var(--black);
+            transform: scale(0.9);
+            outline: 0.2rem solid var(--black);
+            outline-offset: 0.4rem;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 3.5rem;
+            color: var(--black);
+            text-transform: uppercase;
+        }
+
+        .heading span {
+            color: var(--main-color);
+        }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+        }
+
+        .header .flex {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .flex .logo{
+            font-size: 2.2rem;
+            color: var(--black);
+            font-weight: 600;
+            display: flex; /* Added for alignment */
+            align-items: center; /* Added for alignment */
+        }
+        .header .flex .logo img{
+            height: 4rem;
+            margin-right: 1rem;
+            /* position: absolute; -- Removed this line */
+        }
+        .logo span{
+            color: #1e90ff;
+        }
+
+        .header .flex .logo i {
+            margin-right: 0.5rem;
+            color: var(--main-color);
+        }
+
+        .header .flex .navbar ul {
+            list-style: none;
+        }
+
+        .header .flex .navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        .header .flex .navbar ul li a {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--black);
+            padding: 1rem 1.5rem;
+        }
+
+        .header .flex .navbar ul li a:hover {
+            color: var(--main-color);
+        }
+
+        .header .flex .navbar ul li ul {
+            position: absolute;
+            left: 0;
+            width: 20rem;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            border: var(--border);
+            border-radius: 0.5rem;
+            display: none;
+            z-index: 1000;
+        }
+
+        .header .flex .navbar ul li ul li {
+            width: 100%;
+            background-color: var(--white);
+        }
+
+        .header .flex .navbar ul li:hover > ul {
+            display: block;
+        }
+
+        #menu-btn {
+            font-size: 2.5rem;
+            color: var(--black);
+            cursor: pointer;
+            display: none;
+        }
+
+        /* REGISTRATION CONTAINER */
+        .registration-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1000px;
+            overflow: hidden;
+            display: flex;
+            margin: 3rem auto;
+        }
+        
+        .image-section {
+            flex: 1;
+            background: linear-gradient(rgba(60, 64, 198, 0.8), rgba(0, 148, 50, 0.8)), 
+                        url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .image-content {
+            z-index: 2;
+        }
+        
+        .image-section h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .image-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            list-style-type: none;
+        }
+        
+        .features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:before {
+            content: "✓";
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-header {
+            background: linear-gradient(90deg, var(--main-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .form-header h2 {
+            font-weight: 600;
+            font-size: 28px;
+        }
+        
+        .form-container {
+            padding: 30px;
+            flex: 1;
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.6rem;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--main-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(60, 64, 198, 0.2);
+        }
+        
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .country-code {
+            flex: 0 0 120px;
+        }
+        
+        .phone-number {
+            flex: 1;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .radio-option label, .checkbox-option label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(90deg, var(--main-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #2d30a0 0%, #007a29 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        button[type="reset"] {
+            background-color: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .required {
+            color: #e53935;
+        }
+        
+        .instructions {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* ----------------footer---------------- */
+        .footer {
+            background-color: var(--bg-color);
+            border-top: var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer .flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 2rem;
+        }
+
+        .footer .flex .box {
+            flex: 1 1 25rem;
+        }
+
+        .footer .flex .box h3 {
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer .flex .box a {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            margin: 0.5rem 0;
+        }
+
+        .footer .flex .box a i {
+            color: var(--main-color);
+            margin-right: 1rem;
+        }
+
+        .footer .flex .box a:hover {
+            color: var(--black);
+        }
+
+        .footer .flex .box .input {
+            width: 100%;
+            border-radius: 5rem;
+            font-size: 1.6rem;
+            color: var(--black);
+            border: var(--border);
+            background: var(--white);
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .footer .flex .box .btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .footer .credit {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            border-top: var(--border);
+            padding: 2rem 1rem;
+        }
+
+        .footer .credit span {
+            color: var(--main-color);
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .registration-container {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                padding: 30px 20px;
+            }
+            
+            .phone-input-group {
+                flex-direction: column;
+            }
+            
+            .country-code {
+                flex: 1;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .header .flex .navbar {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: var(--border);
+                border-bottom: var(--border);
+            }
+            
+            .header .flex .navbar.active {
+                display: block;
+            }
+            
+            .header .flex .navbar ul li {
+                width: 100%;
+            }
+            
+            .header .flex .navbar ul li ul {
+                position: relative;
+                width: 100%;
+            }
+            
+            #menu-btn {
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <section class="flex">
+            <a href="home.html" class="logo">
+                <img src="https://rest.techbehemoths.com/storage/images/users/main/company-avatar-68835266c72af-x2.png" alt="Shrote Technology Logo">
+                <span>S</span>hrote Technology
+            </a>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+
+                    <li>
+                        <a href="#">Services <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="services.html">Web Design</a></li>
+                            <li><a href="web-development.html">Web Development</a></li>
+                            <li><a href="portal-development.html">Portal Development</a></li>
+                            <li><a href="ecommerce.html">E-commerce Solution</a></li>
+                            <li><a href="software-development.html">Software Development</a></li>
+                            <li><a href="data-science.html">Data Science Solution</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+
+                    <li>
+                        <a href="testimonials.html">Testimonials</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="active">Career <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="#registration-container">Join Our Team</a></li>
+                            <li><a href="current openings.html">Current Openings</a></li>
+                            <li><a href="internship.html">Internships</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </section>
+    </header>
+
+    <div class="registration-container" id="registration-container">
+        <div class="image-section">
+            <div class="image-content">
+                <h1>Find Your Dream Job or Internship</h1>
+                <p>Join thousands of professionals who have found their perfect career match through our platform.</p>
+                <ul class="features">
+                    <li>Access to top companies and startups</li>
+                    <li>Personalized job recommendations</li>
+                    <li>Career development resources</li>
+                    <li>Networking opportunities</li>
+                    <li>Skill-building workshops</li>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="form-header">
+                <h2>User Registration</h2>
+            </div>
+            
+            <div class="form-container">
+                <form action="/submit-registration" method="post">
+                    <div class="form-group">
+                        <label for="fullname">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <input type="password" id="password" name="password" required minlength="8">
+                        <p class="instructions">Must be at least 8 characters long</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="18" max="45">
+                    </div>
+
+                    <!-- Phone Number with Country Code -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <div class="country-code">
+                                <label for="countryCode">Code</label>
+                                <select id="countryCode" name="countryCode" required>
+                                    <option value="+1">US (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+61">AU (+61)</option>
+                                    <option value="+91">IN (+91)</option>
+                                    <option value="+86">CN (+86)</option>
+                                    <option value="+49">DE (+49)</option>
+                                    <option value="+33">FR (+33)</option>
+                                    <option value="+81">JP (+81)</option>
+                                    <option value="+7">RU (+7)</option>
+                                    <option value="+55">BR (+55)</option>
+                                </select>
+                            </div>
+                            <div class="phone-number">
+                                <label for="phoneNumber">Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required pattern="[0-9]{7,15}">
+                            </div>
+                        </div>
+                        <p class="instructions">Enter your phone number without the country code</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="other" name="gender" value="other">
+                                <label for="other">Other</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say">
+                                <label for="prefer-not-to-say">Prefer not to say</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interests</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="tech" name="interests" value="tech">
+                                <label for="tech">Technology</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sports" name="interests" value="sports">
+                                <label for="sports">Sports</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="music" name="interests" value="music">
+                                <label for="music">Music</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="travel" name="interests" value="travel">
+                                <label for="travel">Travel</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="reading" name="interests" value="reading">
+                                <label for="reading">Reading</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">*</span></label>
+                        <select id="country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <option value="de">Germany</option>
+                            <option value="fr">France</option>
+                            <option value="in">India</option>
+                            <option value="jp">Japan</option>
+                            <option value="br">Brazil</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume">Resume</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit">Register</button>
+                        <button type="reset">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------footer------------- -->
+    <footer class="footer">
+        <section class="flex">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+                <a href="about.html"><i class="fas fa-angle-right"></i> About</a>
+                <a href="services.html"><i class="fas fa-angle-right"></i> Services</a>
+                <a href="login.html"><i class="fas fa-angle-right"></i> Login</a>
+                <a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Newsletter</h3>
+                <form action="#">
+                    <input type="email" placeholder="Enter your email" maxlength="50" class="input" required>
+                    <input type="submit" value="Subscribe" class="btn">
+                </form>
+            </div>
+
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </section>
+
+        <div class="credit">
+            Created by <span>Mr. Narendra Reddy</span> | All rights reserved!
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to synchronize country selection with country code
+        document.getElementById('country').addEventListener('change', function() {
+            const country = this.value;
+            const countryCodeSelect = document.getElementById('countryCode');
+            
+            // Map countries to codes
+            const countryToCode = {
+                'us': '+1',
+                'ca': '+1',
+                'uk': '+44',
+                'au': '+61',
+                'de': '+49',
+                'fr': '+33',
+                'in': '+91',
+                'jp': '+81',
+                'br': '+55'
+            };
+            
+            if (country && countryToCode[country]) {
+                for (let i = 0; i < countryCodeSelect.options.length; i++) {
+                    if (countryCodeSelect.options[i].value === countryToCode[country]) {
+                        countryCodeSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+        
+        // Check if we should scroll to the registration form
+        window.addEventListener('DOMContentLoaded', function() {
+            // Check if URL has a hash that points to the registration container
+            if (window.location.hash === '#registration-container') {
+                document.getElementById('registration-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

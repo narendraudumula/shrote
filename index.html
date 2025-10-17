@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shrote Technology | Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --main-color: #3c40c6;
+      --secondary-color: #009432;
+      --white: #fff;
+      --black: #444;
+      --light-color: #666;
+      --bg-color: #fafaff;
+      --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+      --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      margin: 0;
+      padding: 0;
+      transition: all 0.2s linear;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      scroll-padding-top: 7.5rem;
+    }
+
+    ::-webkit-scrollbar {
+      width: 1rem;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--main-color);
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 5rem;
+      font-size: 1.8rem;
+      background-color: var(--main-color);
+      color: var(--white);
+      padding: 1.2rem 2.5rem;
+      box-shadow: var(--box-shadow);
+    }
+    .btn:hover {
+      background-color: var(--black);
+      transform: scale(0.9);
+      outline: 0.2rem solid var(--black);
+      outline-offset: 0.4rem;
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 3.5rem;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+
+    .heading span {
+      color: var(--main-color);
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--white); color: white;
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+    }
+
+    .header .flex {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header .flex .logo{
+      display: flex;
+      align-items: center;
+
+      font-size: 2.2rem;
+      color: var(--black);
+      font-weight: 600;
+    }
+    .header .flex .logo img {
+      height: 4rem;
+      margin-right: 1rem;
+    }
+    
+    .logo span{
+      color: #1e90ff;
+    }
+
+    .header .flex .logo i {
+      margin-right: 0.5rem;
+      color: var(--main-color);
+    }
+
+    .header .flex .navbar ul {
+      list-style: none;
+    }
+
+    .header .flex .navbar ul li {
+      position: relative;
+      float: left;
+    }
+
+    .header .flex .navbar ul li a {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--black);
+      padding: 1rem 1.5rem;
+    }
+
+    .header .flex .navbar ul li a:hover {
+      color: var(--main-color);
+    }
+
+    .header .flex .navbar ul li ul {
+      position: absolute;
+      left: 0;
+      width: 20rem;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      border: var(--border);
+      border-radius: 0.5rem;
+      display: none;
+      z-index: 1000;
+    }
+
+    .header .flex .navbar ul li ul li {
+      width: 100%;
+      background-color: var(--white);
+    }
+
+    .header .flex .navbar ul li:hover > ul {
+      display: block;
+    }
+
+    #menu-btn {
+      font-size: 2.5rem;
+      color: var(--black);
+      cursor: pointer;
+      display: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    }
+
+    .hero .content {
+      max-width: 60rem;
+    }
+
+    .hero .content h1 {
+      font-size: 5rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero .content p {
+      font-size: 1.8rem;
+      color: var(--light-color);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* SERVICES SECTION */
+    .services .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 2rem;
+    }
+
+    .services .box {
+      background: var(--white);
+      border-radius: 0.5rem;
+      box-shadow: var(--box-shadow);
+      padding: 3rem 2rem;
+      text-align: center;
+      border: var(--border);
+    }
+    .services .box:hover{
+      transform: translateX(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .services .box i {
+      font-size: 4rem;
+      color: var(--main-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .services .box h3 {
+      font-size: 2.2rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    
+
+    .services .box p {
+      font-size: 1.6rem;
+      color: var(--light-color);
+      line-height: 1.6;
+    }
+
+    /* FEATURES SECTION */
+    .features {
+      background: var(--bg-color);
+    }
+
+    .features .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: 2rem;
+    }
+
+    .features .box {
+      text-align: center;
+      padding: 2rem;
+    }
+    .features .box:hover{
+      transform: translateX(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .features .box i {
+      font-size: 4rem;
+      color: var(--main-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .features .box h3 {
+      font-size: 2.2rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .features .box p {
+      font-size: 1.6rem;
+      color: var(--light-color);
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonials .box {
+      background: var(--white);
+      border-radius: 0.5rem;
+      box-shadow: var(--box-shadow);
+      padding: 3rem 2rem;
+      border: var(--border);
+    }
+    .testimonials .box:hover{
+      transform: translateX(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .testimonials .box .user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonials .box .user img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1.5rem;
+    }
+
+    .testimonials .box .user h3 {
+      font-size: 2rem;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonials .box .user span {
+      font-size: 1.4rem;
+      color: var(--light-color);
+    }
+
+    .testimonials .box p {
+      font-size: 1.6rem;
+      color: var(--light-color);
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--bg-color);
+      border-top: var(--border);
+      margin-top: 3rem;
+    }
+
+    .footer .flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+
+    .footer .flex .box {
+      flex: 1 1 25rem;
+    }
+
+    .footer .flex .box h3 {
+      font-size: 2rem;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .footer .flex .box a {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--light-color);
+      margin: 0.5rem 0;
+    }
+
+    .footer .flex .box a i {
+      color: var(--main-color);
+      margin-right: 1rem;
+    }
+
+    .footer .flex .box a:hover {
+      color: var(--black);
+    }
+
+    .footer .flex .box .input {
+      width: 100%;
+      border-radius: 5rem;
+      font-size: 1.6rem;
+      color: var(--black);
+      border: var(--border);
+      background: var(--white);
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .footer .flex .box .btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .footer .credit {
+      text-align: center;
+      font-size: 1.6rem;
+      color: var(--light-color);
+      border-top: var(--border);
+      padding: 2rem 1rem;
+    }
+
+    .footer .credit span {
+      color: var(--main-color);
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 991px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #menu-btn {
+        display: inline-block;
+      }
+
+      .header .flex .navbar {
+        position: fixed;
+        top: 7rem;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.3s ease;
+      }
+
+      .header .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .header .flex .navbar ul li {
+        width: 100%;
+        float: none;
+      }
+
+      .header .flex .navbar ul li ul {
+        position: relative;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        display: none;
+        padding-left: 2rem;
+      }
+
+      .header .flex .navbar ul li:hover > ul {
+        display: block;
+      }
+
+      .hero .content h1 {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 459px) {
+      html {
+        font-size: 50%;
+      }
+
+      .hero .content h1 {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <section class="flex">
+      <a href="index.html" class="logo">
+        <img src="https://rest.techbehemoths.com/storage/images/users/main/company-avatar-68835266c72af-x2.png" alt="Shrote Technology Logo">
+        <span>S</span>hrote Technology
+      </a>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li>
+            <a href="#">Services <i class="fas fa-angle-down"></i></a>
+            <ul>
+              <li><a href="services.html">Web Design</a></li>
+              <li><a href="services.html">Web Development</a></li>
+              <li><a href="services.html">Portal Development</a></li>
+              <li><a href="services.html">E-commerce Solution</a></li>
+              <li><a href="services.html">Software Development</a></li>
+              <li><a href="services.html">Data Science Solution</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="Portfolio.html">Portfolio</a>
+          </li>
+
+          <li>
+            <a href="testimonials.html">Testimonials</a>
+          </li>
+
+          <li>
+            <a href="#">Career <i class="fas fa-angle-down"></i></a>
+            <ul>
+              <li><a href="Carrer.html">Join Our Team</a></li>
+              <li><a href="current openings.html">Current Openings</a></li>
+              <li><a href="internship.html">Internships</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div id="menu-btn" class="fas fa-bars"></div>
+    </section>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="content">
+      <h1>Modern Banking Solutions for the Digital Age</h1>
+      <p>Experience seamless banking with our cutting-edge digital solutions. Secure, fast, and designed with you in mind.</p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services">
+    <h1 class="heading">Our <span>Services</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Banking</h3>
+        <p>Bank on the go with our secure mobile app. Transfer funds, pay bills, and manage your accounts anytime, anywhere.</p>
+      </div>
+      <div class="box">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Security</h3>
+        <p>Your security is our priority. We use advanced encryption and multi-factor authentication to protect your data.</p>
+      </div>
+      <div class="box">
+        <i class="fas fa-piggy-bank"></i>
+        <h3>Savings</h3>
+        <p>Grow your wealth with our high-yield savings accounts and investment options tailored to your financial goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features">
+    <h1 class="heading">Why <span>Choose Us</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast Transactions</h3>
+        <p>Experience lightning-fast transactions with our optimized banking infrastructure.</p>
+      </div>
+      <div class="box">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Our customer support team is available round the clock to assist you with any queries.</p>
+      </div>
+      <div class="box">
+        <i class="fas fa-chart-line"></i>
+        <h3>Financial Insights</h3>
+        <p>Get personalized financial insights and recommendations to help you make better decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials">
+    <h1 class="heading">Customer <span>Testimonials</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer">
+          <div>
+            <h3>Sarah Johnson</h3>
+            <span>Business Owner</span>
+          </div>
+        </div>
+        <p>"Bank io has transformed how I manage my business finances. The mobile app is intuitive and the customer service is exceptional!"</p>
+      </div>
+      <div class="box">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer">
+          <div>
+            <h3>Michael Chen</h3>
+            <span>Freelancer</span>
+          </div>
+        </div>
+        <p>"As a freelancer, I need flexible banking solutions. Bank io offers everything I need with competitive rates and no hidden fees."</p>
+      </div>
+      <div class="box">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer">
+          <div>
+            <h3>Emily Rodriguez</h3>
+            <span>Student</span>
+          </div>
+        </div>
+        <p>"The student account options are perfect for my needs. I love the budgeting tools that help me manage my expenses effectively."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <section class="flex">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="home.html"><i class="fas fa-angle-right"></i> Home</a>
+        <a href="about.html"><i class="fas fa-angle-right"></i> About</a>
+        <a href="services.html"><i class="fas fa-angle-right"></i> Services</a>
+        <a href="login.html"><i class="fas fa-angle-right"></i> Login</a>
+        <a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a>
+      </div>
+
+      <div class="box">
+        <h3>Newsletter</h3>
+        <form action="#">
+          <input type="email" placeholder="Enter your email" maxlength="50" class="input" required>
+          <input type="submit" value="Subscribe" class="btn">
+        </form>
+      </div>
+
+      <div class="box">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </section>
+
+    <div class="credit">
+      Created by <span>Mr. Narendra Reddy</span> | All rights reserved!
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const menuBtn = document.querySelector('#menu-btn');
+    const navbar = document.querySelector('.header .navbar');
+
+    menuBtn.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.remove('active');
+    });
+
+    // Mobile dropdown functionality
+    document.querySelectorAll('.navbar ul li a').forEach(link => {
+      if (link.nextElementSibling && link.nextElementSibling.tagName === 'UL') {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const dropdown = link.nextElementSibling;
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

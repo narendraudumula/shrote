@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrote Technology - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --main-color: #3c40c6;
+            --secondary-color: #009432;
+            --white: #fff;
+            --black: #444;
+            --light-color: #666;
+            --bg-color: #fafaff;
+            --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --blue-accent: #4a9eff;
+        }
+
+        * {
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            transition: all 0.2s linear;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 7.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+        }
+
+        .header .flex {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .flex .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .header .flex .logo img {
+            height: 4rem;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .logo span {
+            color: #1e90ff;
+        }
+
+        .header .flex .navbar ul {
+            list-style: none;
+        }
+
+        .header .flex .navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        .header .flex .navbar ul li a {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--black);
+            padding: 1rem 1.5rem;
+        }
+
+        .header .flex .navbar ul li a:hover {
+            color: var(--main-color);
+        }
+
+        .header .flex .navbar ul li ul {
+            position: absolute;
+            left: 0;
+            width: 20rem;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            border: var(--border);
+            border-radius: 0.5rem;
+            display: none;
+            z-index: 1000;
+        }
+
+        .header .flex .navbar ul li ul li {
+            width: 100%;
+            background-color: var(--white);
+            float: none;
+        }
+
+        .header .flex .navbar ul li:hover > ul {
+            display: block;
+        }
+
+        #menu-btn {
+            font-size: 2.5rem;
+            color: var(--black);
+            cursor: pointer;
+            display: none;
+        }
+
+        /* HERO SECTION */
+        .contact-hero {
+            position: relative;
+            height: 40vh;
+            min-height: 350px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .contact-hero h1 {
+            font-size: 6rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .contact-hero h1 span {
+            color: var(--blue-accent);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--blue-accent);
+        }
+
+        .breadcrumb .active {
+            color: var(--blue-accent);
+            font-weight: 600;
+        }
+
+        .breadcrumb i {
+            font-size: 1.2rem;
+            color: var(--blue-accent);
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 8rem 2rem;
+            background-color: var(--dark-bg);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 4.5rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            text-transform: none;
+        }
+
+        .section-header h2 span {
+            color: var(--blue-accent);
+        }
+
+        .section-header p {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            text-transform: none;
+            max-width: 800px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        /* CONTACT INFO CARDS */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 4rem 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-1rem);
+            border-color: var(--blue-accent);
+            box-shadow: 0 2rem 4rem rgba(74, 158, 255, 0.2);
+        }
+
+        .info-icon {
+            width: 8rem;
+            height: 8rem;
+            margin: 0 auto 2rem;
+            background: rgba(74, 158, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--blue-accent);
+        }
+
+        .info-card h3 {
+            font-size: 2.4rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .info-card p,
+        .info-card a {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: none;
+            display: block;
+        }
+
+        .info-card a:hover {
+            color: var(--blue-accent);
+        }
+
+        /* CONTACT FORM */
+        .contact-form-wrapper {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 4rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.8rem 2rem;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 1rem;
+            color: var(--white);
+            font-size: 1.6rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue-accent);
+            box-shadow: 0 0 0 0.3rem rgba(74, 158, 255, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a9eff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 2rem center;
+            padding-right: 4rem;
+        }
+
+        .form-group select option {
+            background: var(--card-bg);
+            color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 15rem;
+        }
+
+        .required-indicator {
+            color: var(--blue-accent);
+            margin-left: 0.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.8rem;
+            background: linear-gradient(135deg, var(--blue-accent), #6dd5fa);
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba(74, 158, 255, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--bg-color);
+            border-top: var(--border);
+            margin-top: 0;
+        }
+
+        .footer .flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer .flex .box {
+            flex: 1 1 25rem;
+        }
+
+        .footer .flex .box h3 {
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer .flex .box a {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            margin: 0.5rem 0;
+        }
+
+        .footer .flex .box a i {
+            color: var(--main-color);
+            margin-right: 1rem;
+        }
+
+        .footer .flex .box a:hover {
+            color: var(--main-color);
+            padding-left: 0.5rem;
+        }
+
+        .footer .flex .box .input {
+            width: 100%;
+            border-radius: 0.5rem;
+            font-size: 1.6rem;
+            color: var(--black);
+            border: var(--border);
+            background: var(--white);
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .footer .flex .box .btn {
+            width: 100%;
+            margin-top: 1rem;
+            background-color: var(--main-color);
+            color: var(--white);
+            padding: 1.2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.6rem;
+        }
+
+        .footer .flex .box .btn:hover {
+            background-color: var(--black);
+        }
+
+        .footer .credit {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            border-top: var(--border);
+            padding: 2rem 1rem;
+        }
+
+        .footer .credit span {
+            color: var(--main-color);
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-btn {
+                display: inline-block;
+            }
+
+            .header .flex .navbar {
+                position: fixed;
+                top: 7.5rem;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: var(--border);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease;
+                box-shadow: var(--box-shadow);
+            }
+
+            .header .flex .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .header .flex .navbar ul li {
+                width: 100%;
+                float: none;
+            }
+
+            .header .flex .navbar ul li a {
+                padding: 1.5rem 2rem;
+            }
+
+            .header .flex .navbar ul li ul {
+                position: relative;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+                display: none;
+                padding-left: 2rem;
+            }
+
+            .header .flex .navbar ul li.active > ul {
+                display: block;
+            }
+
+            .contact-hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-header h2 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .contact-hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <section class="flex">
+            <a href="index.html" class="logo">
+                <img src="https://rest.techbehemoths.com/storage/images/users/main/company-avatar-68835266c72af-x2.png" alt="Shrote Technology Logo">
+                <span>S</span>hrote Technology
+            </a>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Services <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="services.html">Web Design</a></li>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">Portal Development</a></li>
+                            <li><a href="services.html">E-commerce Solution</a></li>
+                            <li><a href="services.html">Software Development</a></li>
+                            <li><a href="services.html">Data Science Solution</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Career <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="Carrer.html">Join Our Team</a></li>
+                            <li><a href="current openings.html">Current Openings</a></li>
+                            <li><a href="internship.html">Internships</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </section>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="contact-hero">
+        <h1>Contact <span>us</span></h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-star"></i>
+            <span class="active">Contact us</span>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2>Get in <span>touch</span> with us</h2>
+                <p>We'd love to hear from you! Whether you have questions, need support, or want to discuss a project, feel free to reach out.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- CONTACT INFO -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone Number</h3>
+                        <a href="tel:+917679836607">+91 7679 83607</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Address</h3>
+                        <a href="mailto:info@shrote.com">info@shrote.com</a>
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM -->
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="form-grid">
+                        <div class="form-group">
+                            <input type="text" id="fullname" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="Phone No" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="web-design">Web Design</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="portal-development">Portal Development</option>
+                                <option value="ecommerce">E-commerce Solution</option>
+                                <option value="software-development">Software Development</option>
+                                <option value="data-science">Data Science Solution</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="city" placeholder="City" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="address" placeholder="Address" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <section class="flex">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+                <a href="about.html"><i class="fas fa-angle-right"></i> About</a>
+                <a href="services.html"><i class="fas fa-angle-right"></i> Services</a>
+                <a href="login.html"><i class="fas fa-angle-right"></i> Login</a>
+                <a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Newsletter</h3>
+                <form action="#" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" maxlength="50" class="input" required>
+                    <input type="submit" value="Subscribe" class="btn">
+                </form>
+            </div>
+
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </section>
+
+        <div class="credit">
+            Created by <span>Mr. Narendra Reddy</span> | All rights reserved!
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const navbar = document.querySelector('.navbar');
+            
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                    
+                    if (navbar.classList.contains('active')) {
+                        menuBtn.classList.remove('fa-bars');
+                        menuBtn.classList.add('fa-times');
+                    } else {
+                        menuBtn.classList.remove('fa-times');
+                        menuBtn.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Mobile Dropdown Toggle
+            const dropdowns = document.querySelectorAll('.navbar .dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.header')) {
+                    navbar.classList.remove('active');
+                    if (menuBtn) {
+                        menuBtn.classList.remove('fa-times');
+                        menuBtn.classList.add('fa-bars');
+                    }
+                }
+            });
+
+            // Contact Form Submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        fullname: document.getElementById('fullname').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        service: document.getElementById('service').value,
+                        city: document.getElementById('city').value,
+                        address: document.getElementById('address').value
+                    };
+                    
+                    // Validate form
+                    if (validateForm(formData)) {
+                        // Show success message
+                        alert('Thank you for contacting us! We will get back to you soon.');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Here you would typically send the data to your server
+                        console.log('Form Data:', formData);
+                    }
+                });
+            }
+
+            function validateForm(data) {
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    alert('Please enter a valid email address.');
+                    return false;
+                }
+                
+                // Phone validation
+                const phoneRegex = /^[0-9]{10}$/;
+                const cleanPhone = data.phone.replace(/\D/g, '');
+                if (cleanPhone.length < 10) {
+                    alert('Please enter a valid phone number.');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            // Newsletter Form
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = newsletterForm.querySelector('input[type="email"]');
+                    
+                    if (validateEmail(emailInput.value)) {
+                        alert('Thank you for subscribing! We will keep you updated.');
+                        emailInput.value = '';
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Animate contact info cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '0';
+                            entry.target.style.transform = 'translateY(30px)';
+                            
+                            setTimeout(() => {
+                                entry.target.style.transition = 'all 0.6s ease';
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            }, 100);
+                        }, index * 150);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.info-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Form animation
+            const formObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateX(30px)';
+                        
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.8s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                        }, 200);
+                        
+                        formObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const formWrapper = document.querySelector('.contact-form-wrapper');
+            if (formWrapper) {
+                formObserver.observe(formWrapper);
+            }
+        });
+    </script>
+</body>
+</html>

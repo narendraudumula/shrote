@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrote Technology - Current Openings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --main-color: #3c40c6;
+            --secondary-color: #009432;
+            --white: #fff;
+            --black: #444;
+            --light-color: #666;
+            --bg-color: #fafaff;
+            --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            --dark-bg: #0a0e27;
+            --card-bg: #131b3a;
+            --card-border: rgba(100, 150, 255, 0.2);
+            --blue-accent: #4a9eff;
+            --text-muted: #8b9dc3;
+        }
+
+        * {
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            transition: all 0.2s linear;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 7.5rem;
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+        }
+
+        .header .flex {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .flex .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .header .flex .logo img {
+            height: 4rem;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .logo span {
+            color: #1e90ff;
+        }
+
+        .header .flex .navbar ul {
+            list-style: none;
+        }
+
+        .header .flex .navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        .header .flex .navbar ul li a {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--black);
+            padding: 1rem 1.5rem;
+        }
+
+        .header .flex .navbar ul li a:hover {
+            color: var(--main-color);
+        }
+
+        .header .flex .navbar ul li ul {
+            position: absolute;
+            left: 0;
+            width: 20rem;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            border: var(--border);
+            border-radius: 0.5rem;
+            display: none;
+            z-index: 1000;
+        }
+
+        .header .flex .navbar ul li ul li {
+            width: 100%;
+            background-color: var(--white);
+            float: none;
+        }
+
+        .header .flex .navbar ul li:hover > ul {
+            display: block;
+        }
+
+        #menu-btn {
+            font-size: 2.5rem;
+            color: var(--black);
+            cursor: pointer;
+            display: none;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2456 100%);
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #4a9eff, #6dd5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: none;
+        }
+
+        .hero-content p {
+            font-size: 2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            text-transform: none;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--blue-accent);
+        }
+
+        .breadcrumb .active {
+            color: var(--blue-accent);
+        }
+
+        .breadcrumb i {
+            font-size: 1.2rem;
+            color: var(--blue-accent);
+        }
+
+        /* JOB LISTINGS SECTION */
+        .job-listings {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #000; /* MODIFIED: Changed background to black */
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0.4rem;
+            height: 100%;
+            background: linear-gradient(180deg, var(--blue-accent), #6dd5fa);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-0.8rem);
+            border-color: var(--blue-accent);
+            box-shadow: 0 2rem 4rem rgba(74, 158, 255, 0.15);
+        }
+
+        .job-card:hover::before {
+            opacity: 1;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .job-icon {
+            background: rgba(74, 158, 255, 0.1);
+            padding: 1.2rem;
+            border-radius: 1rem;
+            color: var(--blue-accent);
+            font-size: 2rem;
+        }
+
+        .job-title {
+            flex: 1;
+        }
+
+        .job-title h3 {
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(74, 158, 255, 0.05);
+            border-radius: 0.8rem;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .meta-item i {
+            color: var(--blue-accent);
+            font-size: 1.6rem;
+        }
+
+        .meta-item span {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            text-transform: none;
+        }
+
+        .job-category {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(74, 158, 255, 0.05);
+            border-radius: 0.8rem;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .job-category i {
+            color: var(--blue-accent);
+            font-size: 1.6rem;
+        }
+
+        .job-category span {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            text-transform: none;
+        }
+
+        .job-responsibilities {
+            margin-bottom: 3rem;
+        }
+
+        .job-responsibilities h4 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .job-responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-responsibilities li {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+            line-height: 1.6;
+            text-transform: none;
+        }
+
+        .job-responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 1rem;
+            color: var(--blue-accent);
+            font-size: 1.8rem;
+        }
+
+        .read-more {
+            color: var(--blue-accent);
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        .job-skills {
+            margin-bottom: 3rem;
+        }
+
+        .job-skills h4 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.8rem 1.8rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid var(--blue-accent);
+            border-radius: 2rem;
+            color: var(--blue-accent);
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--blue-accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .apply-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--blue-accent), #6dd5fa);
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-radius: 0.8rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba(74, 158, 255, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--bg-color);
+            border-top: var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer .flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 2rem;
+        }
+
+        .footer .flex .box {
+            flex: 1 1 25rem;
+        }
+
+        .footer .flex .box h3 {
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer .flex .box a {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            margin: 0.5rem 0;
+        }
+
+        .footer .flex .box a i {
+            color: var(--main-color);
+            margin-right: 1rem;
+        }
+
+        .footer .flex .box a:hover {
+            color: var(--black);
+        }
+
+        .footer .flex .box .input {
+            width: 100%;
+            border-radius: 5rem;
+            font-size: 1.6rem;
+            color: var(--black);
+            border: var(--border);
+            background: var(--white);
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .footer .flex .box .btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .footer .credit {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--light-color);
+            border-top: var(--border);
+            padding: 2rem 1rem;
+        }
+
+        .footer .credit span {
+            color: var(--main-color);
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-btn {
+                display: inline-block;
+            }
+
+            .header .flex .navbar {
+                position: fixed;
+                top: 7.5rem;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: var(--border);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease;
+                box-shadow: var(--box-shadow);
+            }
+
+            .header .flex .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .header .flex .navbar ul li {
+                width: 100%;
+                float: none;
+            }
+
+            .header .flex .navbar ul li a {
+                padding: 1.5rem 2rem;
+            }
+
+            .header .flex .navbar ul li ul {
+                position: relative;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+                display: none;
+                padding-left: 2rem;
+            }
+
+            .header .flex .navbar ul li.active > ul {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+
+            .job-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hidden Content */
+        .hidden-content {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .hidden-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <section class="flex">
+            <a href="index.html" class="logo">
+                <img src="https://rest.techbehemoths.com/storage/images/users/main/company-avatar-68835266c72af-x2.png" alt="Shrote Technology Logo">
+                <span>S</span>hrote Technology
+            </a>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Services <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="services.html">Web Design</a></li>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">Portal Development</a></li>
+                            <li><a href="services.html">E-commerce Solution</a></li>
+                            <li><a href="services.html">Software Development</a></li>
+                            <li><a href="services.html">Data Science Solution</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Career <i class="fas fa-angle-down"></i></a>
+                        <ul>
+                            <li><a href="Carrer.html">Join Our Team</a></li>
+                            <li><a href="current openings.html">Current Openings</a></li>
+                            <li><a href="internship.html">Internships</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </section>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Internship</h1>
+            <p>Explore Our Latest Oppurtunities</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-star"></i>
+                <span class="active">Internships</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB LISTINGS SECTION -->
+    <section class="job-listings">
+        <div class="jobs-grid">
+            <!-- Software Engineer Job -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="job-title">
+                        <h3>Internship - Digital Marketing</h3>
+                    </div>
+                </div>
+
+                <div class="job-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Any Degree</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Minimum 3 Months</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-award"></i>
+                        <span>Full Time</span>
+                    </div>
+                </div>
+
+                <div class="job-category">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Marketing & Communication, Sales/Business</span>
+                </div>
+
+                <div class="job-responsibilities">
+                    <h4>Key Responsibilities</h4>
+                    <ul>
+                        <li>Expert in the CodeIgniter Framework with strong experience in PHP and MySQL</li>
+                        <li>Strong experience in PHP programming with frameworks like Zend and CodeIgniter</li>
+                        <li>Strong knowledge of Web technologies (HTML, JavaScript, CSS, jQuery, Bootstrap, AJAX)</li>
+                        <li class="hidden-content" id="more-software">Experience in API integration and RESTful services</li>
+                        <li class="hidden-content" id="more-software">Knowledge of database design and optimization</li>
+                    </ul>
+                    <span class="read-more" onclick="toggleContent('software')">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+
+                <div class="job-skills">
+                    <h4>Required Skills</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">CodeIgniter</span>
+                    </div>
+                </div>
+
+                <button class="apply-btn" onclick="applyJob('Software Engineer')">Apply Now</button>
+            </div>
+
+            <!-- Senior UI/UX Designer Job -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="job-title">
+                        <h3>Internship - SEO Analyst</h3>
+                    </div>
+                </div>
+
+                <div class="job-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Any Degree</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Minimum 3 Months</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Full Timr</span>
+                    </div>
+                </div>
+
+                <div class="job-category">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Web Design, IT Software - e-Commerce, Internet Technologies</span>
+                </div>
+
+                <div class="job-responsibilities">
+                    <h4>Key Responsibilities</h4>
+                    <ul>
+                        <li>Creative UX designer with extensive knowledge in front end UI development</li>
+                        <li>Demonstrable UI skills with a strong portfolio</li>
+                        <li>Hands on experience in UI design and frontend development</li>
+                        <li class="hidden-content" id="more-designer">Proficiency in design tools like Figma, Adobe XD, Sketch</li>
+                        <li class="hidden-content" id="more-designer">Understanding of user-centered design principles</li>
+                    </ul>
+                    <span class="read-more" onclick="toggleContent('designer')">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+
+                <div class="job-skills">
+                    <h4>Required Skills</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Javascript</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
+
+                <button class="apply-btn" onclick="applyJob('Senior UI/UX Designer')">Apply Now</button>
+            </div>
+
+            <!-- Lead Generation Executive Job -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="job-title">
+                        <h3>Internship - Web Design</h3>
+                    </div>
+                </div>
+
+                <div class="job-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Any Degree</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Minimum 3 Months</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-award"></i>
+                        <span>UI Designer</span>
+                    </div>
+                </div>
+
+                <div class="job-category">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Marketing</span>
+                </div>
+
+                <div class="job-responsibilities">
+                    <h4>Key Responsibilities</h4>
+                    <ul>
+                        <li>Preferably female candidates who have excellent communication skills and can generate a database of Prospective Business Leads, fix up appointments and work as backend support for the Marketing Team</li>
+                        <li>Great communication skills in English and Kannada</li>
+                        <li>To act as an ambassador for the business, and promote the center and its products</li>
+                        <li class="hidden-content" id="more-marketing">Cold calling and lead qualification</li>
+                        <li class="hidden-content" id="more-marketing">CRM management and reporting</li>
+                    </ul>
+                    <span class="read-more" onclick="toggleContent('marketing')">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+
+                <div class="job-skills">
+                    <h4>Required Skills</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Lead Generation</span>
+                        <span class="skill-tag">CRM</span>
+                        <span class="skill-tag">Sales</span>
+                    </div>
+                </div>
+
+                <button class="apply-btn" onclick="applyJob('Lead Generation Executive')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+      <footer class="footer">
+    <section class="flex">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+        <a href="about.html"><i class="fas fa-angle-right"></i> About</a>
+        <a href="services.html"><i class="fas fa-angle-right"></i> Services</a>
+        <a href="login.html"><i class="fas fa-angle-right"></i> Login</a>
+        <a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a>
+      </div>
+
+      <div class="box">
+        <h3>Newsletter</h3>
+        <form action="#">
+          <input type="email" placeholder="Enter your email" maxlength="50" class="input" required>
+          <input type="submit" value="Subscribe" class="btn">
+        </form>
+      </div>
+
+      <div class="box">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </section>
+
+    <div class="credit">
+      Created by <span>Mr. Narendra Reddy</span> | All rights reserved!
+    </div>
+  </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const navbar = document.querySelector('.navbar');
+            
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                    
+                    if (navbar.classList.contains('active')) {
+                        menuBtn.classList.remove('fa-bars');
+                        menuBtn.classList.add('fa-times');
+                    } else {
+                        menuBtn.classList.remove('fa-times');
+                        menuBtn.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Mobile Dropdown Toggle
+            const dropdowns = document.querySelectorAll('.navbar .dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.header')) {
+                    navbar.classList.remove('active');
+                    if (menuBtn) {
+                        menuBtn.classList.remove('fa-times');
+                        menuBtn.classList.add('fa-bars');
+                    }
+                }
+            });
+
+            // Newsletter Form
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = newsletterForm.querySelector('input[type="email"]');
+                    
+                    if (validateEmail(emailInput.value)) {
+                        alert('Thank you for subscribing! We will keep you updated.');
+                        emailInput.value = '';
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Animate job cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(30px)';
+                        
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.job-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Toggle Read More Content
+        function toggleContent(jobType) {
+            const hiddenContent = document.querySelectorAll(`#more-${jobType}`);
+            const readMoreBtn = event.target;
+            
+            hiddenContent.forEach(content => {
+                content.classList.toggle('show');
+            });
+            
+            if (hiddenContent[0].classList.contains('show')) {
+                readMoreBtn.innerHTML = 'Read Less <i class="fas fa-arrow-up"></i>';
+            } else {
+                readMoreBtn.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        // Apply Job Function
+        function applyJob(jobTitle) {
+            // MODIFIED: Redirects to carrer.html as requested.
+            window.location.href = 'carrer.html';
+        }
+    </script>
+</body>
+</html>
